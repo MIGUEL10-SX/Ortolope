@@ -1,0 +1,438 @@
+/* Variáveis CSS */
+:root {
+  --cor-primaria: #007a8f;
+  --cor-secundaria: #00b4c0;
+  --cor-fundo: #f0f2f5;
+  --cor-texto: #333333;
+  --cor-verde: #25d366;
+  --cor-verde-hover: #1ebe5d;
+  --font-principal: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FONTES E CORPO */
+body {
+  font-family: var(--font-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* BLOCO CENTRAL */
+.bloco {
+  margin: 20px auto;
+  max-width: 1000px;
+  padding: 0 15px;
+}
+
+/* CONTAINER PADRÃO */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
+header {
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 25px 0;
+  border-bottom: 4px solid var(--cor-secundaria);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+}
+
+/* NAVEGAÇÃO */
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  outline-offset: 3px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--cor-secundaria);
+  border-radius: 3px 3px 0 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: #fff;
+  background-color: rgba(0, 180, 192, 0.85);
+  box-shadow: 0 4px 15px rgba(0, 180, 192, 0.5);
+  outline: none;
+}
+
+/* HERO (se usar, deixe para depois adaptar) */
+.hero {
+  background: url('img/2e7108c6-8e64-403c-9a67-e94deabd1847.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 180px 20px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  transition: text-shadow 0.5s ease;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  transition: text-shadow 0.5s ease;
+}
+
+/* SEÇÕES COM ESPAÇAMENTO MELHORADO */
+.sobre,
+.servicos,
+.produtos,
+.portfolio,
+.contato {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* SOBRE */
+.sobre {
+  background-color: #e5f8f9;
+}
+
+.sobre h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: var(--cor-primaria);
+}
+
+.sobre p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+/* SOLUÇÕES */
+.servicos {
+  background-color: #f0fcfd;
+}
+
+.servicos h2 {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  color: var(--cor-primaria);
+}
+
+.cards-servicos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: white;
+  border-radius: 14px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 05px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* PRODUTOS */
+.produtos {
+  background-color: white;
+}
+
+.produtos h2 {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  color: var(--cor-primaria);
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.galeria .card {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.galeria .card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.galeria .card img {
+  width: 100%;
+  height: 277px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.galeria .card:hover img {
+  transform: scale(1.1) rotate(1.5deg);
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+}
+
+.galeria .card p {
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--cor-primaria);
+}
+
+/* PORTFÓLIO */
+.portfolio {
+  background-color: #f5f9fa;
+}
+
+.portfolio h2 {
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+  color: var(--cor-primaria);
+}
+
+.portfolio .galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.portfolio .card {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.portfolio .card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.portfolio .card:hover img {
+  transform: scale(1.1) rotate(1.5deg);
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+}
+
+.portfolio .card p {
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--cor-primaria);
+}
+
+/* CONTATO */
+.contato {
+  background-color: #e4fce6;
+}
+
+.contato h2 {
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+  color: var(--cor-primaria);
+}
+
+.contato p {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--cor-texto);
+}
+
+/* BOTÃO WHATSAPP */
+.whatsapp {
+  display: inline-block;
+  background-color: var(--cor-verde);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp:hover,
+.whatsapp:focus-visible {
+  background-color: var(--cor-verde-hover);
+  box-shadow: 0 12px 28px rgba(30, 190, 93, 0.7);
+  transform: scale(1.07);
+  outline: none;
+}
+
+/* RODAPÉ */
+footer {
+  background-color: #003049;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* RESPONSIVIDADE */
+
+/* Header e Nav adaptando para telas menores */
+@media (max-width: 900px) {
+  header .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 8px 12px;
+    font-size: 1rem;
+  }
+
+  .cards-servicos {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* Ajustes para celulares pequenos */
+@media (max-width: 500px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre h2,
+  .servicos h2,
+  .produtos h2,
+  .portfolio h2,
+  .contato h2 {
+    font-size: 1.8rem;
+  }
+
+  .sobre p,
+  .servicos p,
+  .produtos p,
+  .portfolio p,
+  .contato p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+    padding: 5px 10px;
+  }
+}
